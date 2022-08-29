@@ -15,9 +15,13 @@ apps:
   annotation:
     command: usr/bin/opencv_annotation
     extensions: [ gnome ]
+    plugs:
+      - home
   version:
     command: usr/bin/opencv_version
     extensions: [ gnome ]
+    plugs:
+      - home
 
 parts:
   opencv:
