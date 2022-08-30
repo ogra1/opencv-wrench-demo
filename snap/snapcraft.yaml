@@ -30,7 +30,7 @@ apps:
   interactive-calibration:
     command: usr/bin/opencv_interactive-calibration
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/samba
+      LD_LIBRARY_PATH: $SNAP/usr/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/samba:$SNAP/usr/lib/atlas-base/atlas
     extensions: [ gnome ]
     plugs:
       - camera
@@ -44,7 +44,7 @@ apps:
   visualisation:
     command: usr/bin/opencv_visualisation
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/samba
+      LD_LIBRARY_PATH: $SNAP/usr/lib:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/samba:$SNAP/usr/lib/atlas-base/atlas
     extensions: [ gnome ]
     plugs:
       - home
@@ -96,9 +96,11 @@ parts:
       - libvtk9-dev
       - liblapack-dev
       - git-extras
+      - libvpx-dev
     stage-packages:
       - libaec0
       - libaom3
+      - libatlas3-base
       - libavcodec58
       - libavcodec-extra58
       - libavformat58
@@ -135,6 +137,7 @@ parts:
       - libudfread0
       - libusb-1.0-0
       - libva-drm2
+      - libva-wayland2
       - libva-x11-2
       - libvdpau1
       - libwebpmux3
@@ -144,3 +147,8 @@ parts:
       - libzmq5
       - libzvbi0
       - ocl-icd-libopencl1
+      - libv4l-0
+      - libv4lconvert0
+      - python3-numpy
+      - libvpx7
+
